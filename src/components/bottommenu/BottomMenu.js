@@ -2,6 +2,10 @@
 
 import { NavLink } from "react-router-dom";
 
+// React Icons Context
+
+import { IconContext } from "react-icons";
+
 // CSS
 
 import styles from "./BottomMenu.module.scss";
@@ -25,7 +29,9 @@ const BottomMenu = () => {
 				className={styles.nav__link}
 				activeClassName={styles["nav__link--active"]}
 			>
-				<HiUser />
+				<IconContext.Provider value={{ size: "2em" }}>
+					<HiUser />
+				</IconContext.Provider>
 				<span className={styles.nav__text}>Profile</span>
 			</NavLink>
 
@@ -35,7 +41,9 @@ const BottomMenu = () => {
 				className={styles.nav__link}
 				activeClassName={styles["nav__link--active"]}
 			>
-				<HiSearch />
+				<IconContext.Provider value={{ size: "2em" }}>
+					<HiSearch />
+				</IconContext.Provider>
 				<span className={styles.nav__text}>Overview</span>
 			</NavLink>
 
@@ -45,7 +53,9 @@ const BottomMenu = () => {
 				className={styles.nav__link}
 				activeClassName={styles["nav__link--active"]}
 			>
-				<HiHome />
+				<IconContext.Provider value={{ size: "2em" }}>
+					<HiHome />
+				</IconContext.Provider>
 				<span className={styles.nav__text}>Home</span>
 			</NavLink>
 
@@ -55,7 +65,9 @@ const BottomMenu = () => {
 				className={styles.nav__link}
 				activeClassName={styles["nav__link--active"]}
 			>
-				<HiInformationCircle />
+				<IconContext.Provider value={{ size: "2em" }}>
+					<HiInformationCircle />
+				</IconContext.Provider>
 				<span className={styles.nav__text}>About</span>
 			</NavLink>
 
@@ -65,7 +77,9 @@ const BottomMenu = () => {
 				className={styles.nav__link}
 				activeClassName={styles["nav__link--active"]}
 			>
-				<HiChatAlt2 />
+				<IconContext.Provider value={{ size: "2em" }}>
+					<HiChatAlt2 />
+				</IconContext.Provider>
 				<span className={styles.nav__text}>Contact</span>
 			</NavLink>
 		</nav>
