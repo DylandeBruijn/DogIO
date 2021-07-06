@@ -16,6 +16,8 @@ import ProfilePage from "./pages/Profile";
 
 // CSS
 
+import "./styles/app.scss";
+
 // React Router
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
