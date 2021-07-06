@@ -1,55 +1,62 @@
-import React from "react";
+// React
+
+import React, { useState } from "react";
+
+// React Router
+
+import { Route, Switch, Redirect } from "react-router-dom";
 
 // Components
 
-import BottomMenu from "./components/bottommenu/BottomMenu";
+import BottomMenu from "./components/BottomMenu/BottomMenu";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 // Pages
 
-import HomePage from "./pages/Home";
-import LoginPage from "./pages/Login";
-import OverviewPage from "./pages/Overview";
-import DetailPage from "./pages/Detail";
-import AboutPage from "./pages/About";
-import ContactPage from "./pages/Contact";
-import ProfilePage from "./pages/Profile";
+import Home from "./pages/Home/Home";
+import Login from "./pages/Login/Login";
+import Overview from "./pages/Overview/Overview";
+import Detail from "./pages/Detail/Detail";
+import About from "./pages/About/About";
+import Contact from "./pages/Contact/Contact";
+import Profile from "./pages/Profile/Profile";
 
 // CSS
 
 import "./styles/app.scss";
 
-// React Router
-
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
 function App() {
+	const [isAuthenticated, toggleIsAuthenticated] = useState(false);
 	return (
-		<Router>
+		<div>
 			<Switch>
-				<Route exact path="/">
-					<HomePage />
-				</Route>
+				<PrivateRoute exact path="/" isAuthenticated={isAuthenticated}>
+					<Home />
+				</PrivateRoute>
 				<Route exact path="/login">
-					<LoginPage />
+					<Login toggleIsAuthenticated={toggleIsAuthenticated} />
 				</Route>
 				<Route exact path="/overview">
-					<OverviewPage />
+					<Overview />
 				</Route>
 				<Route exact path="/overview/:dog">
-					<DetailPage />
+					<Detail />
 				</Route>
 				<Route exact path="/about">
-					<AboutPage />
+					<About />
 				</Route>
 				<Route exact path="/contact">
-					<ContactPage />
+					<Contact />
 				</Route>
-				<Route exact path="/profile">
-					<ProfilePage />
-				</Route>
+				<PrivateRoute exact path="/profile" isAuthenticated={isAuthenticated}>
+					<Profile
+						isAuthenticated={isAuthenticated}
+						toggleIsAuthenticated={toggleIsAuthenticated}
+					/>
+				</PrivateRoute>
 			</Switch>
-			<BottomMenu />
-		</Router>
+			{isAuthenticated ? <BottomMenu /> : <Redirect to="/login" />}
+		</div>
 	);
 }
 
