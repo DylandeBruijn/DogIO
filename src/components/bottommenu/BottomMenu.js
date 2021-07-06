@@ -2,6 +2,10 @@
 
 import { NavLink } from "react-router-dom";
 
+// CSS
+
+import styles from "./BottomMenu.module.scss";
+
 // Icons
 
 import {
@@ -14,39 +18,56 @@ import {
 
 const BottomMenu = () => {
 	return (
-		<nav>
-			<div className="nav-container">
-				<ul>
-					<li>
-						<NavLink to="/profile" exact activeClassName="active-link">
-							<HiUser />
-						</NavLink>
-					</li>
+		<nav className={styles.nav}>
+			<NavLink
+				to="/profile"
+				exact
+				className={styles.nav__link}
+				activeClassName={styles["nav__link--active"]}
+			>
+				<HiUser />
+				<span className={styles.nav__text}>Profile</span>
+			</NavLink>
 
-					<li>
-						<NavLink to="/overview" exact activeClassName="active-link">
-							<HiSearch />
-						</NavLink>
-					</li>
+			<NavLink
+				to="/overview"
+				exact
+				className={styles.nav__link}
+				activeClassName={styles["nav__link--active"]}
+			>
+				<HiSearch />
+				<span className={styles.nav__text}>Overview</span>
+			</NavLink>
 
-					<li>
-						<NavLink to="/" exact activeClassName="active-link">
-							<HiHome />
-						</NavLink>
-					</li>
+			<NavLink
+				to="/"
+				exact
+				className={styles.nav__link}
+				activeClassName={styles["nav__link--active"]}
+			>
+				<HiHome />
+				<span className={styles.nav__text}>Home</span>
+			</NavLink>
 
-					<li>
-						<NavLink to="/about" exact activeClassName="active-link">
-							<HiInformationCircle />
-						</NavLink>
-					</li>
-					<li>
-						<NavLink to="/contact" exact activeClassName="active-link">
-							<HiChatAlt2 />
-						</NavLink>
-					</li>
-				</ul>
-			</div>
+			<NavLink
+				to="/about"
+				exact
+				className={styles.nav__link}
+				activeClassName={styles["nav__link--active"]}
+			>
+				<HiInformationCircle />
+				<span className={styles.nav__text}>About</span>
+			</NavLink>
+
+			<NavLink
+				to="/contact"
+				exact
+				className={styles.nav__link}
+				activeClassName={styles["nav__link--active"]}
+			>
+				<HiChatAlt2 />
+				<span className={styles.nav__text}>Contact</span>
+			</NavLink>
 		</nav>
 	);
 };
