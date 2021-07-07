@@ -1,6 +1,6 @@
 // Logo
 
-import logo from "../../assets/illustrations/shiba.png";
+import logo from "../../assets/images/illustrations/shiba.png";
 
 // CSS
 

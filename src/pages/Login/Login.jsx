@@ -16,7 +16,7 @@ import styles from "./Login.module.scss";
 
 // Logo
 
-import logo from "../../assets/illustrations/shiba.png";
+import logo from "../../assets/images/illustrations/shiba.png";
 
 const Login = ({ toggleIsAuthenticated }) => {
 	// Hookform
