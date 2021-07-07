@@ -8,18 +8,18 @@ import { Route, Switch, Redirect } from "react-router-dom";
 
 // Components
 
-import BottomMenu from "./components/bottommenu/BottomMenu";
-import PrivateRoute from "./components/privateroute/PrivateRoute";
+import BottomMenu from "./components/BottomMenu/BottomMenu";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 // Pages
 
-import Home from "./pages/home/Home";
-import Login from "./pages/login/Login";
-import Overview from "./pages/overview/Overview";
-import Detail from "./pages/detail/Detail";
-import About from "./pages/about/About";
-import Contact from "./pages/contact/Contact";
-import Profile from "./pages/profile/Profile";
+import About from "./pages/About/About";
+import Contact from "./pages/Contact/Contact";
+import Detail from "./pages/Detail/Detail";
+import Home from "./pages/Home/Home";
+import Login from "./pages/Login/Login";
+import Overview from "./pages/Overview/Overview";
+import Profile from "./pages/Profile/Profile";
 
 // CSS
 
