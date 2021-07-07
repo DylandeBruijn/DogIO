@@ -1,3 +1,54 @@
-.test {
-	background-color: pink;
+@import "../../design-tokens/scss-variables.scss";
+
+.Page {
+	height: 100vh;
+	&__header {
+		min-height: 40vh;
+		background-image: url(../../assets/headers/about.jpg);
+		background-size: cover;
+		background-position: center center;
+	}
+
+	&__content {
+		background: url("../../assets/patterns/dog-pattern.png");
+		background-color: var(--color-primary-background);
+		border-radius: 72px 72px 0px 0px;
+		position: relative;
+		top: -56px;
+		padding: 48px;
+		height: 60vh;
+		width: 100vw;
+		&__title {
+			font-size: 3em;
+			color: var(--color-primary);
+			margin-bottom: 24px;
+		}
+		&__body {
+			font-size: 16px;
+			color: var(--color-primary);
+			margin-bottom: 24px;
+		}
+		&__information {
+			display: flex;
+			align-items: center;
+			color: var(--color-primary);
+			margin-bottom: 24px;
+			&__icon {
+				font-size: 2em;
+			}
+			&__body {
+				font-weight: 600;
+				color: var(--color-primary);
+				margin-left: 8px;
+			}
+		}
+		&__button {
+			padding: 16px 64px;
+			border-radius: 100px;
+			background-color: var(--color-primary);
+			color: hsl(0, 0%, 100%);
+			font-weight: 900;
+			border: none;
+		}
+	}
 }

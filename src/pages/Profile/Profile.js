@@ -4,7 +4,7 @@ import React from "react";
 
 // React Router
 
-import { NavLink, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 // CSS
 
