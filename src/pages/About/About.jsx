@@ -1,9 +1,4 @@
-// React Icons
-
 import { HiLocationMarker, HiMail, HiDeviceMobile } from "react-icons/hi";
-
-// CSS
-
 import styles from "./About.module.scss";
 
 const About = () => {

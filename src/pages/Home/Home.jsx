@@ -1,9 +1,4 @@
-// Logo
-
 import logo from "../../assets/images/illustrations/shiba.png";
-
-// CSS
-
 import styles from "./Home.module.scss";
 
 const Home = () => {

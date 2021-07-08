@@ -1,21 +1,7 @@
-// React
-
 import React from "react";
-
-// React Hookform
-
 import { useForm } from "react-hook-form";
-
-// useHistory
-
 import { useHistory } from "react-router-dom";
-
-// CSS
-
 import styles from "./Login.module.scss";
-
-// Logo
-
 import logo from "../../assets/images/illustrations/shiba.png";
 
 const Login = ({ toggleIsAuthenticated }) => {

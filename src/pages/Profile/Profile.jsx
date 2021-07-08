@@ -1,13 +1,5 @@
-// React
-
 import React from "react";
-
-// React Router
-
 import { useHistory } from "react-router-dom";
-
-// CSS
-
 import styles from "./Profile.module.scss";
 
 const Profile = ({ isAuthenticated, toggleIsAuthenticated }) => {

@@ -1,9 +1,4 @@
-// React Router
-
 import { Link } from "react-router-dom";
-
-// CSS
-
 import styles from "./Detail.module.scss";
 
 const Detail = () => {

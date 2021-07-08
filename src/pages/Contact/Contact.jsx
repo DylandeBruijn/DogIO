@@ -1,13 +1,5 @@
-// React
-
 import React from "react";
-
-// React Hookform
-
 import { useForm } from "react-hook-form";
-
-// CSS
-
 import styles from "./Contact.module.scss";
 
 const Contact = () => {

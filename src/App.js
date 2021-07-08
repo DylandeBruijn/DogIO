@@ -1,16 +1,7 @@
-// React
 import React, { useState } from "react";
-
-// React Router
 import { Route, Switch, Redirect } from "react-router-dom";
-
-// Components
 import BottomMenu from "./components/BottomMenu/BottomMenu";
-
-//Privateroute
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
-
-// Pages
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import Detail from "./pages/Detail/Detail";
@@ -18,8 +9,6 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Overview from "./pages/Overview/Overview";
 import Profile from "./pages/Profile/Profile";
-
-// CSS
 import "./styles/app.scss";
 
 function App() {
