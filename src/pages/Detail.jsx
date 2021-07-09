@@ -1,14 +1,19 @@
-import { Link } from "react-router-dom";
-import styles from "./Detail.module.scss";
+// Import React
+import React from "react";
 
-const Detail = () => {
+// Import Styled Components
+import styled from "styled-components";
+
+// Import Layout Components
+import { Section, Header, Content } from "../styles";
+
+export const Detail = () => {
 	return (
-		<section className={styles.test}>
-			<article>
+		<Section>
+			<Header></Header>
+			<Content>
 				<section>
-					<button>
-						<Link to="/overview">Back</Link>
-					</button>
+					<button>Back</button>
 					<button>Wikipedia</button>
 				</section>
 				<section>
@@ -24,9 +29,7 @@ const Detail = () => {
 						<h2>Life Expectancy (years)</h2>
 					</div>
 				</section>
-			</article>
-		</section>
+			</Content>
+		</Section>
 	);
 };
-
-export default Detail;
