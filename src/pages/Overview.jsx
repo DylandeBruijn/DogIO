@@ -8,7 +8,7 @@ import axios from "axios";
 import styled from "styled-components";
 
 // Import Layout Components
-import { Section, Content } from "../styles";
+import { Section, Content, DogCard } from "../styles";
 
 export const Overview = () => {
 	const [dogData, setDogData] = useState(null);
@@ -21,7 +21,7 @@ export const Overview = () => {
 			toggleLoading(true);
 			try {
 				const response = await axios.get(
-					`https://api.thedogapi.com/v1/breeds?api_key=cb9794bd-ce01-481d-947a-b4e2c981c7c0`
+					`https://api.thedogapi.com/v1/breeds?limit=10`
 				);
 				setDogData(response.data);
 				console.log(response.data);
@@ -40,11 +40,17 @@ export const Overview = () => {
 				{error && <span>Oeps er is iets fout gegaan!</span>}
 				{loading && <span>Loading...</span>}
 				{dogData?.map((dog) => (
-					<article key={dog.id}>
-						<h3>{dog.name}</h3>
-						<p>{dog.bred_for}</p>
-						<p>{dog.breed_group}</p>
-					</article>
+					<DogCard key={dog.id}>
+						<div>
+							<img src={dog.image.url} alt="" />
+						</div>
+						<div>
+							{" "}
+							<h3>{dog.name}</h3>
+							<p>{dog.bred_for}</p>
+							<p>{dog.breed_group}</p>
+						</div>
+					</DogCard>
 				))}
 			</OverviewContent>
 		</OverviewSection>
