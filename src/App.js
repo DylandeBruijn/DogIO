@@ -23,8 +23,6 @@ import { GlobalStyle } from "./GlobalStyle";
 // Import Theme
 import { Theme } from "./Theme";
 
-console.log(process.env.REACT_APP_API_KEY);
-
 export const App = () => {
 	return (
 		<>
@@ -40,7 +38,7 @@ export const App = () => {
 					<Route exact path="/overview">
 						<Overview />
 					</Route>
-					<Route exact path="/overview/:dog">
+					<Route exact path="/overview/:id">
 						<Detail />
 					</Route>
 					<Route exact path="/about">

@@ -4,32 +4,57 @@ import React from "react";
 // Import Styled Components
 import styled from "styled-components";
 
+// Import Params
+import { useParams } from "react-router-dom";
+
 // Import Layout Components
-import { Section, Header, Content } from "../styles";
+import { Section, Header, Content, Button } from "../styles";
 
 export const Detail = () => {
+	const params = useParams();
+	console.log(params);
 	return (
 		<Section>
-			<Header></Header>
+			<DetailHeader>
+				<div className="button-row">
+					<Button>Back</Button>
+					<Button>Wikipedia</Button>
+				</div>
+			</DetailHeader>
 			<Content>
 				<section>
-					<button>Back</button>
-					<button>Wikipedia</button>
-				</section>
-				<section>
-					<h1>Dog Name</h1>
+					<h2>Dog Name</h2>
 					<div>
-						<button>Character Feature</button>
-						<button>Character Feature</button>
-						<button>Character Feature</button>
+						<Button>Character Feature</Button>
+						<Button>Character Feature</Button>
+						<Button>Character Feature</Button>
 					</div>
 					<div>
-						<h2>Weight (kg)</h2>
-						<h2>Length (cm)</h2>
-						<h2>Life Expectancy (years)</h2>
+						<h3>Weight (kg)</h3>
+						<h3>Length (cm)</h3>
+						<h3>Life Expectancy (years)</h3>
 					</div>
 				</section>
 			</Content>
+			))}
 		</Section>
 	);
 };
+
+// Styled Components
+
+const DetailHeader = styled(Header)`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: lightgrey;
+	.button-row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 3rem;
+		button {
+			margin: 0;
+		}
+	}
+`;

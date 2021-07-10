@@ -1,6 +1,9 @@
 // Import GlobalStyle
 import { createGlobalStyle } from "styled-components";
 
+// Import Pattern
+import pattern from "./assets/images/patterns/dog-pattern.png";
+
 // Export GlobalStyle
 export const GlobalStyle = createGlobalStyle`
 
@@ -8,6 +11,12 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-image: url(${pattern});
 }
 
 body {
@@ -30,6 +39,10 @@ h2 {
 
 h3 {
     font-size: 2rem;
+}
+
+h4 {
+    font-size: 1.1rem;
 }
 
 a {

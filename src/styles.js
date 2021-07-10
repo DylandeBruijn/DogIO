@@ -4,17 +4,13 @@ import styled from "styled-components";
 // Import React Router
 import { NavLink, Link } from "react-router-dom";
 
-// Import Pattern
-import pattern from "./assets/images/patterns/dog-pattern.png";
-
 // UI
 
 export const Section = styled.section`
-	width: 100vw;
+	width: calc(100vw - 17px);
 	height: 100vh;
-	background-color: ${(props) => props.theme.colors.primaryBackgroundColor};
-	background-image: url(${pattern});
-	background-position: center center;
+	/* background-color: ${(props) =>
+		props.theme.colors.primaryBackgroundColor}; */
 `;
 
 export const Header = styled.header`
@@ -64,14 +60,13 @@ export const Button = styled.button`
 // Navigation
 
 export const Nav = styled.nav`
+	display: flex;
 	position: fixed;
 	bottom: 0;
 	width: 100%;
 	height: 100px;
 	box-shadow: 0 0 2px ${(props) => props.theme.colors.primaryColor};
 	background-color: ${(props) => props.theme.colors.secundaryColor};
-	display: flex;
-	overflow-x: auto;
 `;
 
 export const StyledNavLink = styled(NavLink)`
@@ -86,10 +81,10 @@ export const StyledNavLink = styled(NavLink)`
 	color: ${(props) => props.theme.colors.primaryColor};
 	text-decoration: none;
 	transition: background-color 0.1s ease-in-out;
-	border-top: 4px solid transparent;
+	border-top: 8px solid transparent;
 	&.current {
 		color: ${(props) => props.theme.colors.primaryColorDark};
-		border-top: 4px solid ${(props) => props.theme.colors.primaryColor};
+		border-top: 8px solid ${(props) => props.theme.colors.primaryColor};
 	}
 	.navlink-icon {
 		font-size: 2rem;
@@ -151,7 +146,49 @@ export const Form = styled.form`
 // Api Card
 
 export const DogCard = styled.article`
-	padding: 3rem;
-	border: 4px solid red;
+	display: flex;
 	margin: 2rem 0rem;
+	border-radius: 15px;
+	background-color: ${(props) => props.theme.colors.primaryBackgroundColor};
+	box-shadow: 0px 5px 50px
+		${(props) => props.theme.colors.secundaryBackgroundColor};
+	.dog-image {
+		width: 250px;
+		height: 250px;
+		object-fit: cover;
+		aspect-ratio: 1 / 1;
+		border-radius: 15px;
+	}
+	.dog-body {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		width: 100%;
+		padding: 3rem;
+		.dog-name {
+			font-size: 1.5rem;
+			margin: 0;
+		}
+		.dog-information {
+			display: flex;
+			justify-content: space-between;
+			div {
+				h4 {
+					font-size: 1.1rem;
+					font-weight: 600;
+					margin-bottom: 1rem;
+				}
+				p {
+					margin: 0;
+					font-size: 1.1rem;
+					font-weight: 600;
+					color: ${(props) => props.theme.colors.textColor};
+				}
+			}
+		}
+	}
+	&:hover {
+		transition: all 0.5s ease;
+		box-shadow: 0px 5px 100px #ffc379;
+	}
 `;
