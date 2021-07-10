@@ -72,10 +72,6 @@ export const Nav = styled.nav`
 	background-color: ${(props) => props.theme.colors.secundaryColor};
 	display: flex;
 	overflow-x: auto;
-	.current {
-		color: ${(props) => props.theme.colors.primaryColorDark};
-		border-top: 4px solid ${(props) => props.theme.colors.primaryColor};
-	}
 `;
 
 export const StyledNavLink = styled(NavLink)`
@@ -90,6 +86,11 @@ export const StyledNavLink = styled(NavLink)`
 	color: ${(props) => props.theme.colors.primaryColor};
 	text-decoration: none;
 	transition: background-color 0.1s ease-in-out;
+	border-top: 4px solid transparent;
+	&.current {
+		color: ${(props) => props.theme.colors.primaryColorDark};
+		border-top: 4px solid ${(props) => props.theme.colors.primaryColor};
+	}
 	.navlink-icon {
 		font-size: 2rem;
 	}
@@ -145,4 +146,12 @@ export const Form = styled.form`
 			background-color: ${(props) => props.theme.colors.primaryColorDark};
 		}
 	}
+`;
+
+// Api Card
+
+export const DogCard = styled.article`
+	padding: 3rem;
+	border: 4px solid red;
+	margin: 2rem 0rem;
 `;
