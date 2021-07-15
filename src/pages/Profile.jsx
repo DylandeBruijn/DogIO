@@ -5,7 +5,7 @@ import React from "react";
 import styled from "styled-components";
 
 // Import Layout Components
-import { Section, Content, Button, StyledLink } from "../styles";
+import { Section, Content, Button, StyledLink, ContentTitle } from "../styles";
 
 // Import Avatar
 import avatar from "../assets/images/avatars/sergio.jpg";
@@ -19,7 +19,7 @@ export const Profile = () => {
 				</div>
 			</TopBar>
 			<ProfileContent>
-				<h2>Profile Page</h2>
+				<ContentTitle>Profile Page</ContentTitle>
 				<StyledLink to="/">Likes</StyledLink>
 				<StyledLink to="/">Favorites</StyledLink>
 				<StyledLink to="/">Upload</StyledLink>

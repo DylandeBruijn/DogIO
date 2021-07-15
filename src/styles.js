@@ -14,9 +14,10 @@ export const Section = styled.section`
 `;
 
 export const Header = styled.header`
-	height: 30vh;
+	height: 40vh;
 	background-size: cover;
 	background-position: center;
+	padding: 5rem;
 `;
 
 export const Content = styled.section`
@@ -24,20 +25,14 @@ export const Content = styled.section`
 	display: flex;
 	flex-direction: column;
 	padding: 5rem;
+	border-radius: 3rem 3rem 0rem 0rem;
+	margin-top: -3rem;
+	background-color: ${(props) => props.theme.colors.primaryBackgroundColor};
 `;
 
-export const Title = styled.h1`
-	font-size: 6rem;
-	text-align: center;
-	span {
-		color: ${(props) => props.theme.colors.secundaryColor};
-	}
-`;
-
-export const Subtitle = styled.p`
-	padding: 3rem 0rem;
-	font-size: 1.3rem;
-	text-align: center;
+export const ContentTitle = styled.h2`
+	font-size: 3rem;
+	margin-bottom: 2rem;
 `;
 
 export const Button = styled.button`
@@ -45,7 +40,6 @@ export const Button = styled.button`
 	font-size: 1.1rem;
 	margin: 3rem 0rem;
 	padding: 1rem 4rem;
-	max-width: fit-content;
 	cursor: pointer;
 	border-radius: 30px;
 	border: none;

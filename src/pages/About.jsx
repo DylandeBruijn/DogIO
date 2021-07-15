@@ -8,7 +8,7 @@ import { HiLocationMarker, HiMail, HiDeviceMobile } from "react-icons/hi";
 import styled from "styled-components";
 
 // Import Layout Components
-import { Section, Header, Content, Button } from "../styles";
+import { Section, Header, Content, Button, ContentTitle } from "../styles";
 
 // Import Header Image
 import HeaderImage from "../assets/images/headers/about.jpg";
@@ -18,7 +18,7 @@ export const About = () => {
 		<Section>
 			<AboutHeader></AboutHeader>
 			<AboutContent>
-				<h2>About</h2>
+				<ContentTitle>About</ContentTitle>
 				<p>
 					DogIO helps you find your perfect furry four legged friend! Use our
 					user friendly search function to match with all kinds of dogs. Do you

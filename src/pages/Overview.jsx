@@ -11,27 +11,32 @@ import styled from "styled-components";
 import { dogUrl } from "../helpers/dogUrl";
 
 // Import Layout Components
-import { Section, Content, DogCard, StyledLink } from "../styles";
+import { Section, Content, DogCard, StyledLink, ContentTitle } from "../styles";
+
+// Import Components
+import { SearchBar } from "../components/SearchBar";
 
 export const Overview = () => {
-	const [data, setData] = useState(null);
+	// API State
+	const [dogs, setDogs] = useState(null);
 	const [error, setError] = useState("");
 	const [loading, toggleLoading] = useState(false);
 
+	// API Call
 	useEffect(() => {
-		async function fetchData() {
+		async function loadDogs() {
 			setError(false);
 			toggleLoading(true);
 			try {
 				const response = await axios.get(
-					`https://api.thedogapi.com/v1/breeds?limit=999`,
+					`https://api.thedogapi.com/v1/breeds`,
 					{
 						headers: {
 							"X-API-KEY": "process.env.REACT_APP_API_KEY",
 						},
 					}
 				);
-				setData(response.data);
+				setDogs(response.data);
 				console.log(response.data);
 			} catch (e) {
 				console.error(e);
@@ -39,17 +44,18 @@ export const Overview = () => {
 			}
 			toggleLoading(false);
 		}
-		fetchData();
+		loadDogs();
 	}, []);
 
 	return (
 		<OverviewSection>
 			<OverviewContent>
-				<h2>Start Searching</h2>
+				<ContentTitle>Start Searching</ContentTitle>
+				<SearchBar dogs={dogs} />
 				<p>More than a hundred different dog breeds</p>
 				{error && <span>Oeps er is iets fout gegaan!</span>}
 				{loading && <span>Loading...</span>}
-				{data?.map((dog) => (
+				{dogs?.map((dog) => (
 					<StyledLink key={dog.id} to={`/overview/${dogUrl(dog.name)}`}>
 						<DogCard>
 							<img className="dog-image" src={dog.image.url} alt="" />

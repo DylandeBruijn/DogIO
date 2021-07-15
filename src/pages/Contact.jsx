@@ -5,7 +5,7 @@ import React from "react";
 import styled from "styled-components";
 
 // Import Layout Components
-import { Section, Header, Content, Form } from "../styles";
+import { Section, Header, Content, Form, ContentTitle } from "../styles";
 
 // Import Header Image
 import HeaderImage from "../assets/images/headers/contact.jpg";
@@ -15,7 +15,7 @@ export const Contact = () => {
 		<Section>
 			<ContactHeader></ContactHeader>
 			<ContactContent>
-				<h2>Contact</h2>
+				<ContentTitle>Contact</ContentTitle>
 				<Form>
 					<div>
 						<label htmlFor="name">Name</label>
