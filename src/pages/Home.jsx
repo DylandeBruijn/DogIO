@@ -26,7 +26,7 @@ export const Home = () => {
 				</div>
 				<img src={shiba} alt="shiba-inu" />
 				<Button>
-					<GetStartedLink to="/overview">Get started</GetStartedLink>
+					<GetStartedLink to="/login">Get started</GetStartedLink>
 				</Button>
 			</HomeContent>
 		</Section>

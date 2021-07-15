@@ -9,13 +9,18 @@ import { About } from "./pages/About";
 import { Contact } from "./pages/Contact";
 import { Detail } from "./pages/Detail";
 import { Home } from "./pages/Home";
-import { Login } from "./pages/Login";
 import { Overview } from "./pages/Overview";
 import { Profile } from "./pages/Profile";
-import { Signup } from "./pages/Signup";
 
 // Import Components
 import { Navigation } from "./components/Navigation";
+
+// Authentication
+import { LoginForm } from "./components/auth/LoginForm";
+import { ConfirmForm } from "./components/auth/ConfirmForm";
+
+// PrivateRoute
+import { PrivateRoute } from "./components/route/PrivateRoute";
 
 // Import GlobalStyle
 import { GlobalStyle } from "./GlobalStyle";
@@ -33,22 +38,28 @@ export const App = () => {
 						<Home />
 					</Route>
 					<Route exact path="/login">
-						<Login />
+						<LoginForm />
 					</Route>
-					<Route exact path="/overview">
+					<Route exact path="/confirm">
+						<ConfirmForm />
+					</Route>
+					<PrivateRoute exact path="/overview">
 						<Overview />
-					</Route>
-					<Route exact path="/overview/:id">
+					</PrivateRoute>
+					<PrivateRoute exact path="/overview/:id">
 						<Detail />
-					</Route>
-					<Route exact path="/about">
+					</PrivateRoute>
+					<PrivateRoute exact path="/about">
 						<About />
-					</Route>
-					<Route exact path="/contact">
+					</PrivateRoute>
+					<PrivateRoute exact path="/contact">
 						<Contact />
-					</Route>
-					<Route exact path="/profile">
+					</PrivateRoute>
+					<PrivateRoute exact path="/profile">
 						<Profile />
+					</PrivateRoute>
+					<Route>
+						<h2>404 Page Not Found</h2>
 					</Route>
 				</Switch>
 				<Navigation />

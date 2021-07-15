@@ -7,6 +7,9 @@ import ReactDOM from "react-dom";
 // Import React Router
 import { BrowserRouter as Router } from "react-router-dom";
 
+// Auth Provider
+import { AuthProvider } from "./hooks/useAuth";
+
 // Import App
 import { App } from "./App";
 
@@ -15,9 +18,11 @@ import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
 	<React.StrictMode>
-		<Router>
-			<App />
-		</Router>
+		<AuthProvider>
+			<Router>
+				<App />
+			</Router>
+		</AuthProvider>
 	</React.StrictMode>,
 	document.getElementById("root")
 );

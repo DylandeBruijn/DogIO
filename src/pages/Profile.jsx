@@ -1,6 +1,9 @@
 // Import React
 import React from "react";
 
+// Authentication
+import { useAuth } from "../hooks/useAuth";
+
 // Import Styled Components
 import styled from "styled-components";
 
@@ -11,6 +14,8 @@ import { Section, Content, Button, StyledLink, ContentTitle } from "../styles";
 import avatar from "../assets/images/avatars/sergio.jpg";
 
 export const Profile = () => {
+	const { user, logout } = useAuth();
+
 	return (
 		<Section>
 			<TopBar>
@@ -20,12 +25,15 @@ export const Profile = () => {
 			</TopBar>
 			<ProfileContent>
 				<ContentTitle>Profile Page</ContentTitle>
+				<p>Welcome, {user.email}!</p>
 				<StyledLink to="/">Likes</StyledLink>
 				<StyledLink to="/">Favorites</StyledLink>
 				<StyledLink to="/">Upload</StyledLink>
 				<StyledLink to="/">Tour</StyledLink>
 				<StyledLink to="/">Settings</StyledLink>
-				<Button type="button">Sign Out</Button>
+				<Button type="button" onClick={logout}>
+					Logout
+				</Button>
 			</ProfileContent>
 		</Section>
 	);
