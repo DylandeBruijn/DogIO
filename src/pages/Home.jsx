@@ -1,33 +1,35 @@
-// Import React
+// React
 import React from "react";
 
-// React Router
-import { Link } from "react-router-dom";
-
-// Import Styled Components
+// Styled Components
 import styled from "styled-components";
 
-// Import Layout Components
-import { Section, Content, Button, StyledLink } from "../styles";
+// Layout Components
+import {
+	Section,
+	OnboardContent,
+	Title,
+	Subtitle,
+	Button,
+	StyledLink,
+} from "../styles";
 
-// Import Images
-import shiba from "../assets/images/illustrations/shiba.png";
+// SVG
+import { Shiba } from "../components/svg/Shiba";
 
 export const Home = () => {
 	return (
 		<Section>
 			<HomeContent>
-				<div>
-					<Title>
-						Dog.
-						<span>io</span>
-					</Title>
-					<Subtitle>Vind de trouwe viervoeter die bij je past!</Subtitle>
-				</div>
-				<img src={shiba} alt="shiba-inu" />
-				<Button>
-					<GetStartedLink to="/login">Get started</GetStartedLink>
-				</Button>
+				<HomeShiba />
+				<Title>
+					Dog.
+					<span>io</span>
+				</Title>
+				<Subtitle>Find your perfect furry four legged friend!</Subtitle>
+				<GetStartedLink to="/overview">
+					<Button>Get Started</Button>
+				</GetStartedLink>
 			</HomeContent>
 		</Section>
 	);
@@ -35,31 +37,22 @@ export const Home = () => {
 
 // Styled Components
 
-const HomeContent = styled(Content)`
-	justify-content: space-around;
+const HomeContent = styled(OnboardContent)`
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	align-items: center;
-	img {
-		object-fit: contain;
-		max-width: 1000px;
+	Button {
+		margin-top: 4rem;
 	}
 `;
 
-const Title = styled.h1`
-	font-size: 6rem;
-	text-align: center;
-	margin-bottom: 0.5rem;
-	span {
-		color: ${(props) => props.theme.colors.secundaryColor};
-	}
-`;
-
-const Subtitle = styled.p`
-	padding: 1rem 0rem;
-	font-size: 1.3rem;
-	text-align: center;
+const HomeShiba = styled(Shiba)`
+	width: 10%;
 `;
 
 const GetStartedLink = styled(StyledLink)`
-	font-size: 1rem;
+	font-size: 1.4rem;
 	color: ${(props) => props.theme.colors.primaryBackgroundColor};
 `;

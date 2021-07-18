@@ -1,19 +1,16 @@
-// Import React
+// React
 import React, { useState, useEffect } from "react";
 
-// Import React Router
-import { Link } from "react-router-dom";
-
-// Import Axios
+// Axios
 import axios from "axios";
 
-// Import Styled Components
+// Styled Components
 import styled from "styled-components";
 
-// Import Params
+// Params
 import { useParams } from "react-router-dom";
 
-// Import Layout Components
+// Layout Components
 import { Section, Header, Content, Button, ContentTitle } from "../styles";
 
 export const Detail = () => {
@@ -56,83 +53,108 @@ export const Detail = () => {
 	const imgURL = `https://cdn2.thedogapi.com/images/${dog?.reference_image_id}.jpg`;
 
 	return (
-		<>
+		<DetailSection>
 			<DetailHeader imgURL={imgURL}>
-				<div>
-					<Button>Back</Button>
-					<Link>
-						<Button>Wikipedia</Button>
-					</Link>
-				</div>
+				<BackButton>Back</BackButton>
 			</DetailHeader>
-			<Section>
-				<DetailContent>
-					<ContentTitle>{dog?.name}</ContentTitle>
-					<FeatureContainer>
-						{features?.map((feature) => (
-							<Feature>{feature}</Feature>
-						))}
-					</FeatureContainer>
-					<InformationContainer>
-						<div>
-							<h3>Weight</h3>
-							<div className="line"></div>
-							<p>{dog?.weight.metric} kg</p>
-						</div>
-						<div>
-							<h3>Length</h3>
-							<div className="line"></div>
-							<p>{dog?.height.metric} cm</p>
-						</div>
-						<div>
-							<h3>Origin</h3>
-							<div className="line"></div>
-							<p>{dog?.origin}</p>
-						</div>
-						<div>
-							<h3>Breed Group</h3>
-							<div className="line"></div>
-							<p>{dog?.breed_group}</p>
-						</div>
-					</InformationContainer>
-				</DetailContent>
-			</Section>
-		</>
+			<DetailContent>
+				<ContentTitle>{dog?.name}</ContentTitle>
+				<FeatureContainer>
+					{features?.map((feature) => (
+						<Feature>{feature}</Feature>
+					))}
+				</FeatureContainer>
+				<InformationContainer>
+					<div>
+						<h3>Weight</h3>
+						<div className="line"></div>
+						<p>{dog?.weight.metric} kg</p>
+					</div>
+					<div>
+						<h3>Length</h3>
+						<div className="line"></div>
+						<p>{dog?.height.metric} cm</p>
+					</div>
+					<div>
+						<h3>Origin</h3>
+						<div className="line"></div>
+						<p>{dog?.origin}</p>
+					</div>
+					<div>
+						<h3>Breed Group</h3>
+						<div className="line"></div>
+						<p>{dog?.breed_group}</p>
+					</div>
+				</InformationContainer>
+			</DetailContent>
+		</DetailSection>
 	);
 };
 
 // Styled Components
 
-const DetailHeader = styled(Header)`
+const DetailSection = styled(Section)`
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	flex-direction: row;
+	height: calc(100vh - 8vh);
+	@media (max-width: 1400px) {
+		flex-direction: column;
+	}
+	@media (max-width: 600px) {
+		padding-bottom: 50rem;
+	}
+`;
+
+const DetailHeader = styled(Header)`
 	background: url(${(props) => props.imgURL});
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-position: bottom bottom;
-	height: 40vh;
+	background-position: center center;
+	width: 50vw;
+	height: 100%;
+	padding: 8rem 24rem;
+	@media (max-width: 1400px) {
+		width: 100vw;
+		height: 40vh;
+	}
 `;
 
-const DetailContent = styled(Content)``;
+const BackButton = styled(Button)`
+	margin: 0;
+`;
+
+const DetailContent = styled(Content)`
+	width: 50vw;
+	margin: 0;
+	height: 100%;
+	padding: 8rem 24rem;
+	@media (max-width: 1400px) {
+		width: 100vw;
+		height: 60vh;
+	}
+`;
 
 const FeatureContainer = styled.div`
-	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
-	margin-bottom: 3rem;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	margin-bottom: 8rem;
+	@media (max-width: 600px) {
+		grid-template-columns: 1fr;
+		grid-template-rows: autofill;
+	}
 `;
 
 const Feature = styled(Button)`
-	font-size: 0.8rem;
+	font-size: 1.5rem;
 	margin: 1rem 1rem 1rem 0rem;
+	border-radius: 0;
 `;
 
 const InformationContainer = styled.div`
 	div {
 		margin-bottom: 4rem;
 		h3 {
-			font-size: 2rem;
+			font-size: 3rem;
 		}
 		.line {
 			width: 100%;
@@ -141,7 +163,7 @@ const InformationContainer = styled.div`
 			background-color: ${(props) => props.theme.colors.primaryColor};
 		}
 		p {
-			font-size: 1.4rem;
+			font-size: 2rem;
 			font-weight: 600;
 		}
 	}

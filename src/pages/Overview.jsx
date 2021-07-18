@@ -1,30 +1,39 @@
-// Import React
+// React
 import React, { useState, useEffect } from "react";
 
-// Import Axios
+// Axios
 import axios from "axios";
 
-// Import Styled Components
+// Styled Components
 import styled from "styled-components";
 
-// Import Helpers
-import { dogUrl } from "../helpers/dogUrl";
+// Layout Components
+import { Section, Content, ContentTitle, ContentSubtitle } from "../styles";
 
-// Import Layout Components
-import { Section, Content, DogCard, StyledLink, ContentTitle } from "../styles";
-
-// Import Components
+// Components
 import { SearchBar } from "../components/SearchBar";
+import { DogGrid } from "../components/DogGrid";
 
 export const Overview = () => {
 	// API State
-	const [dogs, setDogs] = useState(null);
-	const [error, setError] = useState("");
+	const [dogs, setDogs] = useState([]);
+	const [filteredDogs, setFilteredDogs] = useState(dogs);
 	const [loading, toggleLoading] = useState(false);
+	const [error, setError] = useState("");
+
+	const handleSearch = (event) => {
+		let value = event.target.value.toLowerCase();
+		let result = [];
+		console.log(value);
+		result = dogs.filter((dog) => {
+			return dog.name.toLowerCase().search(value) != -1;
+		});
+		setFilteredDogs(result);
+	};
 
 	// API Call
 	useEffect(() => {
-		async function loadDogs() {
+		const fetchDogs = async () => {
 			setError(false);
 			toggleLoading(true);
 			try {
@@ -37,48 +46,26 @@ export const Overview = () => {
 					}
 				);
 				setDogs(response.data);
+				setFilteredDogs(response.data);
 				console.log(response.data);
 			} catch (e) {
 				console.error(e);
 				setError(true);
 			}
 			toggleLoading(false);
-		}
-		loadDogs();
+		};
+		fetchDogs();
 	}, []);
 
 	return (
 		<OverviewSection>
 			<OverviewContent>
 				<ContentTitle>Start Searching</ContentTitle>
-				<SearchBar dogs={dogs} />
-				<p>More than a hundred different dog breeds</p>
-				{error && <span>Oeps er is iets fout gegaan!</span>}
-				{loading && <span>Loading...</span>}
-				{dogs?.map((dog) => (
-					<StyledLink key={dog.id} to={`/overview/${dogUrl(dog.name)}`}>
-						<DogCard>
-							<img className="dog-image" src={dog.image.url} alt="" />
-							<div className="dog-body">
-								<h3 className="dog-name">{dog.name}</h3>
-								<div className="dog-information">
-									<div className="weight">
-										<h4>Weight</h4>
-										<p>{dog.weight.metric} kg</p>
-									</div>
-									<div className="height">
-										<h4>Height</h4>
-										<p>{dog.height.metric} cm</p>
-									</div>
-									<div className="life-span">
-										<h4>Life Span</h4>
-										<p>{dog.life_span}</p>
-									</div>
-								</div>
-							</div>
-						</DogCard>
-					</StyledLink>
-				))}
+				<ContentSubtitle>
+					More than a hundred different dog breeds
+				</ContentSubtitle>
+				<SearchBar handleSearch={handleSearch} />
+				<DogGrid filteredDogs={filteredDogs} loading={loading} error={error} />
 			</OverviewContent>
 		</OverviewSection>
 	);
@@ -87,10 +74,12 @@ export const Overview = () => {
 // Styled Components
 
 const OverviewSection = styled(Section)`
-	height: auto;
-	margin-bottom: 5rem;
+	display: block;
+	height: 100%;
 `;
 
 const OverviewContent = styled(Content)`
-	height: auto;
+	width: 100%;
+	background-color: transparent;
+	padding-bottom: 16rem;
 `;

@@ -1,6 +1,3 @@
-// React
-import react from "react";
-
 // React Router DOM
 import { Route, Redirect } from "react-router-dom";
 

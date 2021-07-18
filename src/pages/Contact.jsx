@@ -1,20 +1,20 @@
-// Import React
+// React
 import React from "react";
 
-// Import Styled Components
+// Styled Components
 import styled from "styled-components";
 
-// Import Layout Components
+// Layout Components
 import { Section, Header, Content, Form, ContentTitle } from "../styles";
 
-// Import Header Image
+// Header Image
 import HeaderImage from "../assets/images/headers/contact.jpg";
 
 export const Contact = () => {
 	return (
 		<Section>
 			<ContactHeader></ContactHeader>
-			<ContactContent>
+			<Content>
 				<ContentTitle>Contact</ContentTitle>
 				<Form>
 					<div>
@@ -29,9 +29,9 @@ export const Contact = () => {
 						<label htmlFor="telephone">Telephone</label>
 						<input type="tel" id="telephone" />
 					</div>
-					<input type="submit" value="Contact" />
+					<input type="submit" value="Contact" disabled={true} />
 				</Form>
-			</ContactContent>
+			</Content>
 		</Section>
 	);
 };
@@ -40,8 +40,4 @@ export const Contact = () => {
 
 const ContactHeader = styled(Header)`
 	background-image: url(${HeaderImage});
-`;
-
-const ContactContent = styled(Content)`
-	height: calc(70vh - 100px);
 `;

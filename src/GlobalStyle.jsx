@@ -13,10 +13,22 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
 }
 
+html, body {
+    width: 100vw;
+}
+
 html {
-    /* overflow-x: hidden;
-    overflow-y: scroll; */
     background-image: url(${pattern});
+    font-size: 67.5%;
+    @media (max-width: 1700px) {
+        font-size: 75%;
+    }
+    @media (max-width: 1400px) {
+        font-size: 75%;
+    }
+    @media (max-width: 600px) {
+        font-size: 75%;
+    }
 }
 
 body {
@@ -49,8 +61,13 @@ a {
 }
 
 p {
-    font-size: 1rem;
+    font-size: 2rem;
     color: ${(props) => props.theme.colors.primaryColor};
     margin-bottom: 2rem;
 }
+
+input:focus {
+    outline: none;
+}
+
 `;

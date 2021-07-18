@@ -1,16 +1,16 @@
-// Import React
+// React
 import React from "react";
 
-// Import React Icons
+// React Icons
 import { HiLocationMarker, HiMail, HiDeviceMobile } from "react-icons/hi";
 
-// Import Styled Components
+// Styled Components
 import styled from "styled-components";
 
-// Import Layout Components
+// Layout Components
 import { Section, Header, Content, Button, ContentTitle } from "../styles";
 
-// Import Header Image
+// Header Image
 import HeaderImage from "../assets/images/headers/about.jpg";
 
 export const About = () => {
@@ -52,17 +52,22 @@ const AboutHeader = styled(Header)`
 `;
 
 const AboutContent = styled(Content)`
-	height: calc(70vh - 100px);
+	p {
+		margin-bottom: 4rem;
+	}
 `;
 
 const ContactInformation = styled.div`
+	margin-bottom: 4rem;
 	div {
 		display: flex;
 		align-items: center;
-		font-size: 1.1rem;
+		font-size: 2rem;
 		font-weight: 600;
 		color: ${(props) => props.theme.colors.primaryColor};
 		.information-icon {
+			margin: 2rem 0rem;
+			font-size: 4rem;
 			margin-right: 1.1rem;
 		}
 	}

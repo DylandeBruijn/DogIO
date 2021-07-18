@@ -1,39 +1,42 @@
-// Import React
+// React
 import React from "react";
 
 // Authentication
 import { useAuth } from "../hooks/useAuth";
 
-// Import Styled Components
+// Styled Components
 import styled from "styled-components";
 
-// Import Layout Components
-import { Section, Content, Button, StyledLink, ContentTitle } from "../styles";
+// Layout Components
+import {
+	Section,
+	Header,
+	Content,
+	ContentTitle,
+	StyledLink,
+	Button,
+} from "../styles";
 
-// Import Avatar
-import avatar from "../assets/images/avatars/sergio.jpg";
+// Header Image
+import HeaderImage from "../assets/images/headers/profile.jpg";
 
 export const Profile = () => {
 	const { user, logout } = useAuth();
 
 	return (
 		<Section>
-			<TopBar>
-				<div>
-					<img src={avatar} alt="avatar" />
-				</div>
-			</TopBar>
+			<ProfileHeader></ProfileHeader>
 			<ProfileContent>
 				<ContentTitle>Profile Page</ContentTitle>
-				<p>Welcome, {user.email}!</p>
-				<StyledLink to="/">Likes</StyledLink>
-				<StyledLink to="/">Favorites</StyledLink>
-				<StyledLink to="/">Upload</StyledLink>
-				<StyledLink to="/">Tour</StyledLink>
-				<StyledLink to="/">Settings</StyledLink>
-				<Button type="button" onClick={logout}>
+				<WelcomeMessage>Welcome, {user.email}!</WelcomeMessage>
+				<ProfileLink to="/">Likes</ProfileLink>
+				<ProfileLink to="/">Favorites</ProfileLink>
+				<ProfileLink to="/">Upload</ProfileLink>
+				<ProfileLink to="/">Tour</ProfileLink>
+				<ProfileLink to="/">Settings</ProfileLink>
+				<LogoutButton type="button" onClick={logout}>
 					Logout
-				</Button>
+				</LogoutButton>
 			</ProfileContent>
 		</Section>
 	);
@@ -41,25 +44,33 @@ export const Profile = () => {
 
 // Styled Components
 
-const TopBar = styled.div`
-	height: 10vh;
-	background-color: ${(props) => props.theme.colors.secundaryColor};
-	padding: 2rem 5rem;
-	div {
-		display: inline-block;
-		position: relative;
-		width: 200px;
-		height: 200px;
-		overflow: hidden;
-		border-radius: 50%;
-		img {
-			width: auto;
-			height: 100%;
-			margin-left: -50px;
-		}
+const ProfileHeader = styled(Header)`
+	background-image: url(${HeaderImage});
+	@media (max-width: 1400px) {
+		width: 100vw;
+		height: 10%;
 	}
 `;
 
 const ProfileContent = styled(Content)`
-	height: calc(90vh - 100px);
+	@media (max-width: 1400px) {
+		width: 100vw;
+		height: 90%;
+	}
+`;
+
+const ProfileLink = styled(StyledLink)`
+	font-size: 2rem;
+	padding: 1rem 0rem;
+`;
+
+const WelcomeMessage = styled.p`
+	font-size: 1.3rem;
+	font-weight: 600;
+	margin-bottom: 4rem;
+	color: ${(props) => props.theme.colors.secundaryColor};
+`;
+
+const LogoutButton = styled(Button)`
+	margin-top: 4rem;
 `;

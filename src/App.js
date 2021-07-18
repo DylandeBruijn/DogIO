@@ -1,10 +1,10 @@
-// Import React
+// React
 import React from "react";
 
-// Import React Router
+// React Router
 import { Route, Switch } from "react-router-dom";
 
-// Import Pages
+// Pages
 import { About } from "./pages/About";
 import { Contact } from "./pages/Contact";
 import { Detail } from "./pages/Detail";
@@ -12,8 +12,8 @@ import { Home } from "./pages/Home";
 import { Overview } from "./pages/Overview";
 import { Profile } from "./pages/Profile";
 
-// Import Components
-import { Navigation } from "./components/Navigation";
+// Components
+import { Navigation } from "./components/ui/Navigation";
 
 // Authentication
 import { LoginForm } from "./components/auth/LoginForm";
@@ -22,10 +22,10 @@ import { ConfirmForm } from "./components/auth/ConfirmForm";
 // PrivateRoute
 import { PrivateRoute } from "./components/route/PrivateRoute";
 
-// Import GlobalStyle
+// GlobalStyle
 import { GlobalStyle } from "./GlobalStyle";
 
-// Import Theme
+// Theme
 import { Theme } from "./Theme";
 
 export const App = () => {
@@ -34,9 +34,9 @@ export const App = () => {
 			<Theme>
 				<GlobalStyle />
 				<Switch>
-					<Route exact path="/">
+					<PrivateRoute exact path="/">
 						<Home />
-					</Route>
+					</PrivateRoute>
 					<Route exact path="/login">
 						<LoginForm />
 					</Route>
