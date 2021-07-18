@@ -27,9 +27,9 @@ export const Home = () => {
 					<span>io</span>
 				</Title>
 				<Subtitle>Find your perfect furry four legged friend!</Subtitle>
-				<GetStartedLink to="/overview">
+				<StyledLink to="/overview">
 					<Button>Get Started</Button>
-				</GetStartedLink>
+				</StyledLink>
 			</HomeContent>
 		</Section>
 	);
@@ -38,7 +38,7 @@ export const Home = () => {
 // Styled Components
 
 const HomeContent = styled(OnboardContent)`
-	height: 100%;
+	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -49,10 +49,14 @@ const HomeContent = styled(OnboardContent)`
 `;
 
 const HomeShiba = styled(Shiba)`
-	width: 10%;
-`;
-
-const GetStartedLink = styled(StyledLink)`
-	font-size: 1.4rem;
-	color: ${(props) => props.theme.colors.primaryBackgroundColor};
+	width: 25rem;
+	@media (max-width: 1400px) {
+		width: 30rem;
+	}
+	@media (max-width: 1024px) {
+		width: 25rem;
+	}
+	@media (max-width: 600px) {
+		width: 20rem;
+	}
 `;

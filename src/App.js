@@ -12,15 +12,18 @@ import { Home } from "./pages/Home";
 import { Overview } from "./pages/Overview";
 import { Profile } from "./pages/Profile";
 
-// Components
-import { Navigation } from "./components/ui/Navigation";
-
 // Authentication
 import { LoginForm } from "./components/auth/LoginForm";
 import { ConfirmForm } from "./components/auth/ConfirmForm";
 
 // PrivateRoute
 import { PrivateRoute } from "./components/route/PrivateRoute";
+
+// Components
+import { Navigation } from "./components/ui/Navigation";
+
+// Styled Components
+import styled from "styled-components";
 
 // GlobalStyle
 import { GlobalStyle } from "./GlobalStyle";
@@ -59,7 +62,9 @@ export const App = () => {
 						<Profile />
 					</PrivateRoute>
 					<Route>
-						<h2>404 Page Not Found</h2>
+						<PageNotFound>
+							<h2>404 Page Not Found</h2>
+						</PageNotFound>
 					</Route>
 				</Switch>
 				<Navigation />
@@ -67,3 +72,15 @@ export const App = () => {
 		</>
 	);
 };
+
+// Styled Components
+const PageNotFound = styled.div`
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	h2 {
+		font-size: 8rem;
+	}
+`;

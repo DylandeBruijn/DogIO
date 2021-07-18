@@ -11,12 +11,20 @@ import styled from "styled-components";
 import { useParams } from "react-router-dom";
 
 // Layout Components
-import { Section, Header, Content, Button, ContentTitle } from "../styles";
+import {
+	Section,
+	Header,
+	Content,
+	Button,
+	ContentTitle,
+	StyledLink,
+	ErrorMessage,
+	SuccesMessage,
+} from "../styles";
 
 export const Detail = () => {
 	// Params
 	const dogName = useParams();
-	console.log("useParams", dogName);
 
 	// API State
 	const [dog, setDog] = useState(null);
@@ -38,30 +46,36 @@ export const Detail = () => {
 					}
 				);
 				setDog(response.data[0]);
-				console.log("Response: ", response.data[0]);
 			} catch (e) {
-				console.error(e);
 				setError(true);
 			}
 			toggleLoading(false);
 		}
 		loadDog();
-	}, []);
+	}, [dogName.id]);
 
 	// Computing
 	const features = dog?.temperament.split(", ");
 	const imgURL = `https://cdn2.thedogapi.com/images/${dog?.reference_image_id}.jpg`;
 
 	return (
-		<DetailSection>
+		<Section>
 			<DetailHeader imgURL={imgURL}>
-				<BackButton>Back</BackButton>
+				<StyledLink to="/overview">
+					<Button>Back</Button>
+				</StyledLink>
 			</DetailHeader>
-			<DetailContent>
+			<Content>
+				{error && (
+					<ErrorMessage>
+						There was something wrong with your request!
+					</ErrorMessage>
+				)}
+				{loading && <SuccesMessage>Loading...</SuccesMessage>}
 				<ContentTitle>{dog?.name}</ContentTitle>
 				<FeatureContainer>
-					{features?.map((feature) => (
-						<Feature>{feature}</Feature>
+					{features?.map((feature, i) => (
+						<Feature key={i}>{feature}</Feature>
 					))}
 				</FeatureContainer>
 				<InformationContainer>
@@ -86,67 +100,39 @@ export const Detail = () => {
 						<p>{dog?.breed_group}</p>
 					</div>
 				</InformationContainer>
-			</DetailContent>
-		</DetailSection>
+			</Content>
+		</Section>
 	);
 };
 
 // Styled Components
 
-const DetailSection = styled(Section)`
-	display: flex;
-	flex-direction: row;
-	height: calc(100vh - 8vh);
-	@media (max-width: 1400px) {
-		flex-direction: column;
-	}
-	@media (max-width: 600px) {
-		padding-bottom: 50rem;
-	}
-`;
-
 const DetailHeader = styled(Header)`
-	background: url(${(props) => props.imgURL});
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center center;
-	width: 50vw;
-	height: 100%;
-	padding: 8rem 24rem;
-	@media (max-width: 1400px) {
-		width: 100vw;
-		height: 40vh;
-	}
-`;
-
-const BackButton = styled(Button)`
-	margin: 0;
-`;
-
-const DetailContent = styled(Content)`
-	width: 50vw;
-	margin: 0;
-	height: 100%;
-	padding: 8rem 24rem;
-	@media (max-width: 1400px) {
-		width: 100vw;
-		height: 60vh;
-	}
+	background-image: url(${(props) => props.imgURL});
 `;
 
 const FeatureContainer = styled.div`
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	margin-bottom: 8rem;
+	margin-bottom: 4rem;
+	@media (max-width: 1024px) {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: autofill;
+	}
 	@media (max-width: 600px) {
 		grid-template-columns: 1fr;
 		grid-template-rows: autofill;
 	}
 `;
 
-const Feature = styled(Button)`
-	font-size: 1.5rem;
+const Feature = styled.span`
+	font-size: 1rem;
+	font-weight: 600;
+	text-align: center;
+	color: ${(props) => props.theme.colors.primaryBackgroundColor};
+	background-color: ${(props) => props.theme.colors.primaryColor};
 	margin: 1rem 1rem 1rem 0rem;
+	padding: 1rem;
 	border-radius: 0;
 `;
 
@@ -154,7 +140,7 @@ const InformationContainer = styled.div`
 	div {
 		margin-bottom: 4rem;
 		h3 {
-			font-size: 3rem;
+			font-size: 2rem;
 		}
 		.line {
 			width: 100%;

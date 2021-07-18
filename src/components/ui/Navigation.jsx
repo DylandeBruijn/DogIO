@@ -62,7 +62,7 @@ const Nav = styled.nav`
 	box-shadow: 0 0 2px ${(props) => props.theme.colors.primaryColor};
 	background-color: ${(props) => props.theme.colors.secundaryColor};
 	@media (max-width: 600px) {
-		height: 4vh;
+		height: 8vh;
 	}
 `;
 

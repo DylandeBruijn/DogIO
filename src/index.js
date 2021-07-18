@@ -1,19 +1,19 @@
-// Import React
+// React
 import React from "react";
 
-// Import ReactDOM
+// ReactDOM
 import ReactDOM from "react-dom";
 
-// Import React Router
+// React Router
 import { BrowserRouter as Router } from "react-router-dom";
 
-// Auth Provider
+// Provider
 import { AuthProvider } from "./hooks/useAuth";
 
-// Import App
+// App
 import { App } from "./App";
 
-// Import reportWebVitals
+// reportWebVitals
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(

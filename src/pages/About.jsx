@@ -8,7 +8,14 @@ import { HiLocationMarker, HiMail, HiDeviceMobile } from "react-icons/hi";
 import styled from "styled-components";
 
 // Layout Components
-import { Section, Header, Content, Button, ContentTitle } from "../styles";
+import {
+	Section,
+	Header,
+	Content,
+	Button,
+	ContentTitle,
+	StyledLink,
+} from "../styles";
 
 // Header Image
 import HeaderImage from "../assets/images/headers/about.jpg";
@@ -39,7 +46,9 @@ export const About = () => {
 						<span>0610642044</span>
 					</div>
 				</ContactInformation>
-				<Button>Contact</Button>
+				<StyledLink to="/contact">
+					<Button>Contact</Button>
+				</StyledLink>
 			</AboutContent>
 		</Section>
 	);
@@ -65,10 +74,11 @@ const ContactInformation = styled.div`
 		font-size: 2rem;
 		font-weight: 600;
 		color: ${(props) => props.theme.colors.primaryColor};
+		span {
+			padding-left: 2rem;
+		}
 		.information-icon {
 			margin: 2rem 0rem;
-			font-size: 4rem;
-			margin-right: 1.1rem;
 		}
 	}
 `;

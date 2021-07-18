@@ -24,9 +24,8 @@ export const Overview = () => {
 	const handleSearch = (event) => {
 		let value = event.target.value.toLowerCase();
 		let result = [];
-		console.log(value);
 		result = dogs.filter((dog) => {
-			return dog.name.toLowerCase().search(value) != -1;
+			return dog.name.toLowerCase().search(value) !== -1;
 		});
 		setFilteredDogs(result);
 	};
@@ -47,7 +46,6 @@ export const Overview = () => {
 				);
 				setDogs(response.data);
 				setFilteredDogs(response.data);
-				console.log(response.data);
 			} catch (e) {
 				console.error(e);
 				setError(true);
@@ -81,5 +79,4 @@ const OverviewSection = styled(Section)`
 const OverviewContent = styled(Content)`
 	width: 100%;
 	background-color: transparent;
-	padding-bottom: 16rem;
 `;

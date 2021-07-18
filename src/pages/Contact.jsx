@@ -5,7 +5,16 @@ import React from "react";
 import styled from "styled-components";
 
 // Layout Components
-import { Section, Header, Content, Form, ContentTitle } from "../styles";
+import {
+	Section,
+	Header,
+	Content,
+	ContentTitle,
+	Form,
+	Label,
+	Input,
+	Submit,
+} from "../styles";
 
 // Header Image
 import HeaderImage from "../assets/images/headers/contact.jpg";
@@ -16,21 +25,21 @@ export const Contact = () => {
 			<ContactHeader></ContactHeader>
 			<Content>
 				<ContentTitle>Contact</ContentTitle>
-				<Form>
+				<ContactForm>
 					<div>
-						<label htmlFor="name">Name</label>
-						<input type="text" id="name" />
+						<Label htmlFor="name">Name</Label>
+						<ContactInput type="text" id="name" />
 					</div>
 					<div>
-						<label htmlFor="email">Email</label>
-						<input type="email" id="email" />
+						<Label htmlFor="email">Email</Label>
+						<ContactInput type="email" id="email" />
 					</div>
 					<div>
-						<label htmlFor="telephone">Telephone</label>
-						<input type="tel" id="telephone" />
+						<Label htmlFor="telephone">Telephone</Label>
+						<ContactInput type="tel" id="telephone" />
 					</div>
-					<input type="submit" value="Contact" disabled={true} />
-				</Form>
+					<ContactSubmit type="submit" value="Contact" disabled={true} />
+				</ContactForm>
 			</Content>
 		</Section>
 	);
@@ -40,4 +49,19 @@ export const Contact = () => {
 
 const ContactHeader = styled(Header)`
 	background-image: url(${HeaderImage});
+`;
+
+const ContactForm = styled(Form)`
+	div {
+		display: flex;
+		flex-direction: column;
+	}
+`;
+
+const ContactInput = styled(Input)`
+	max-width: 50%;
+`;
+
+const ContactSubmit = styled(Submit)`
+	margin-top: 4rem;
 `;

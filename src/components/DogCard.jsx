@@ -54,7 +54,7 @@ const DogContent = styled.article`
 		border-bottom-left-radius: 0;
 		border-bottom-right-radius: 0;
 		@media (max-width: 600px) {
-			height: 20rem;
+			height: 50rem;
 		}
 	}
 	div {

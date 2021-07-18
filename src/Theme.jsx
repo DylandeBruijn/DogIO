@@ -1,10 +1,10 @@
-// Import React
+// React
 import React from "react";
 
-// Import ThemeProvider
+// ThemeProvider
 import { ThemeProvider } from "styled-components";
 
-// Setup Theme
+// Theme
 
 const theme = {
 	colors: {

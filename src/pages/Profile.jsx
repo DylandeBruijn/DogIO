@@ -26,7 +26,7 @@ export const Profile = () => {
 	return (
 		<Section>
 			<ProfileHeader></ProfileHeader>
-			<ProfileContent>
+			<Content>
 				<ContentTitle>Profile Page</ContentTitle>
 				<WelcomeMessage>Welcome, {user.email}!</WelcomeMessage>
 				<ProfileLink to="/">Likes</ProfileLink>
@@ -37,7 +37,7 @@ export const Profile = () => {
 				<LogoutButton type="button" onClick={logout}>
 					Logout
 				</LogoutButton>
-			</ProfileContent>
+			</Content>
 		</Section>
 	);
 };
@@ -48,14 +48,8 @@ const ProfileHeader = styled(Header)`
 	background-image: url(${HeaderImage});
 	@media (max-width: 1400px) {
 		width: 100vw;
-		height: 10%;
-	}
-`;
-
-const ProfileContent = styled(Content)`
-	@media (max-width: 1400px) {
-		width: 100vw;
-		height: 90%;
+		height: 40vh;
+		background-position: 100% 40%;
 	}
 `;
 
@@ -65,7 +59,7 @@ const ProfileLink = styled(StyledLink)`
 `;
 
 const WelcomeMessage = styled.p`
-	font-size: 1.3rem;
+	font-size: 2rem;
 	font-weight: 600;
 	margin-bottom: 4rem;
 	color: ${(props) => props.theme.colors.secundaryColor};

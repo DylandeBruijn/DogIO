@@ -1,4 +1,4 @@
-// Import Styled Components
+// Styled Components
 import styled from "styled-components";
 
 // React Router
@@ -7,18 +7,14 @@ import { Link } from "react-router-dom";
 // UI
 
 export const Section = styled.section`
-	height: calc(100vh - 8vh);
 	display: flex;
 	@media (max-width: 1400px) {
 		flex-direction: column;
 	}
-	@media (max-width: 600px) {
-		padding-bottom: 50rem;
-	}
 `;
 
 export const Header = styled.header`
-	height: 100%;
+	height: 100vh;
 	width: 50vw;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -26,34 +22,37 @@ export const Header = styled.header`
 	padding: 8rem;
 	@media (max-width: 1400px) {
 		width: 100vw;
-		height: 40%;
+		height: 40vh;
+		background-position: 100% 20%;
 	}
 `;
 
 export const Content = styled.section`
-	height: 100%;
 	width: 50vw;
+	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	padding: 8rem;
 	background-color: ${(props) => props.theme.colors.primaryBackgroundColor};
-	@media (max-width: 600px) {
-		padding: 8rem 4rem;
-	}
 	@media (max-width: 1400px) {
 		width: 100vw;
-		height: 60%;
+	}
+	@media (max-width: 600px) {
+		padding: 8rem 8rem 24rem 8rem;
 	}
 `;
 
 export const ContentTitle = styled.h2`
-	font-size: 6rem;
-	margin-bottom: 4rem;
+	font-size: 4rem;
+	margin-bottom: 3rem;
 `;
 
 export const ContentSubtitle = styled.p`
 	font-size: 2rem;
 	font-weight: 600;
+	@media (max-width: 600px) {
+		font-size: 3rem;
+	}
 `;
 
 export const Button = styled.button`
@@ -76,6 +75,9 @@ export const Title = styled.h1`
 	font-size: 16rem;
 	margin-bottom: 1rem;
 	text-align: center;
+	@media (max-width: 600px) {
+		font-size: 12rem;
+	}
 	span {
 		color: ${(props) => props.theme.colors.secundaryColor};
 	}
@@ -84,6 +86,9 @@ export const Title = styled.h1`
 export const Subtitle = styled.p`
 	font-size: 2.5rem;
 	text-align: center;
+	@media (max-width: 600px) {
+		font-size: 3rem;
+	}
 `;
 
 export const StyledLink = styled(Link)`

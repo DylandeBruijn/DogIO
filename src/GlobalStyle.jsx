@@ -1,7 +1,7 @@
-// Import GlobalStyle
+// GlobalStyle
 import { createGlobalStyle } from "styled-components";
 
-// Import Pattern
+// Pattern
 import pattern from "./assets/images/patterns/dog-pattern.png";
 
 // Export GlobalStyle
@@ -13,26 +13,17 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
 }
 
-html, body {
-    width: 100vw;
-}
-
 html {
     background-image: url(${pattern});
     font-size: 67.5%;
-    @media (max-width: 1700px) {
-        font-size: 75%;
-    }
     @media (max-width: 1400px) {
-        font-size: 75%;
-    }
-    @media (max-width: 600px) {
-        font-size: 75%;
+        font-size: 60%;
     }
 }
 
 body {
     font-family: "Poppins", sans-serif;
+}
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 900;
@@ -64,9 +55,14 @@ p {
     font-size: 2rem;
     color: ${(props) => props.theme.colors.primaryColor};
     margin-bottom: 2rem;
+    @media (max-width: 600px) {
+	    font-size: 3rem;
+	}
 }
 
 input:focus {
+    transition: all 0.5s ease;
+	box-shadow: 0px 5px 100px #ffc379;
     outline: none;
 }
 
