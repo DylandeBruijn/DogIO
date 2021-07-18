@@ -8,11 +8,11 @@ Online is veel informatie te vinden over alle verschillende rassen honden, allee
 
 ## Benodigdheden
 
-API
+### API
 
 REACT_APP_API_KEY=cb9794bd-ce01-481d-947a-b4e2c981c7c0
 
-FIREBASE
+### FIREBASE
 
 REACT_APP_FB_API=AIzaSyDEakLgTMiV1L7v0icZVISF7y8vN0suD2I
 REACT_APP_FB_DOMAIN=dogio-development.firebaseapp.com
