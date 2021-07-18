@@ -1,4 +1,4 @@
-# DogIO - Vind de trouwe viervoeter die bij je past!
+# Dog.io - Vind de trouwe viervoeter die bij je past!
 
 Online is veel informatie te vinden over alle verschillende rassen honden, alleen is deze informatie niet makkelijk te vergelijken of op een duidelijke manier vormgegeven. Tijdens het selecteren van een geschikte hond zijn het temperament en karaktertrekken het belangrijkst. Mijn webapp stelt de gebruiker in staat om een rashond te vinden die bij hem of haar past op basis van The Dog API. De gebruiker kan onder andere zoeken naar een specifiek ras, duidelijk en overzichtelijk alle rassen bekijken en matchen op basis van karaktertrekken en temperament.
 
@@ -8,25 +8,51 @@ Online is veel informatie te vinden over alle verschillende rassen honden, allee
 
 ## API Key
 
-REACT_APP_API_KEY=cb9794bd-ce01-481d-947a-b4e2c981c7c0
+- REACT_APP_API_KEY=cb9794bd-ce01-481d-947a-b4e2c981c7c0
 
 ## Firebase Config
 
-REACT_APP_FB_API=AIzaSyDEakLgTMiV1L7v0icZVISF7y8vN0suD2I
-REACT_APP_FB_DOMAIN=dogio-development.firebaseapp.com
-REACT_APP_FB_PROJECT=dogio-development
-REACT_APP_FB_BUCKET=dogio-development.appspot.com
-REACT_APP_FB_SENDER=181669453123
-REACT_APP_FB_APP=1:181669453123:web:966ce32bb84b54315263f6
+- REACT_APP_FB_API=AIzaSyDEakLgTMiV1L7v0icZVISF7y8vN0suD2I
+- REACT_APP_FB_DOMAIN=dogio-development.firebaseapp.com
+- REACT_APP_FB_PROJECT=dogio-development
+- REACT_APP_FB_BUCKET=dogio-development.appspot.com
+- REACT_APP_FB_SENDER=181669453123
+- REACT_APP_FB_APP=1:181669453123:web:966ce32bb84b54315263f6
 
 ## Installatie Instructies
 
+
+```
 # Install dependencies
 npm install
+```
 
+```
 # Run app
 npm start
+```
 
+```
 # Build app
 npm run build
+```
 
+## Dependencies
+
+- Firebase
+- Axios
+- React Router DOM
+- React Icons
+- React Hook Form
+- Styled Components
+
+## Inloggen
+
+Dog.io maakt gebruik van Firebase Passwordless Authentication:
+
+1. Open de app.
+2. Vul je emailadres in.
+3. Je ontvangt nu een login link in je mailbox.
+4. Open de login link.
+5. Bevestig je emailadres.
+6. Je kunt nu gebruik maken van de app.
