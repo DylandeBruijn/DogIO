@@ -6,13 +6,11 @@ Online is veel informatie te vinden over alle verschillende rassen honden, allee
 
 ![image](https://user-images.githubusercontent.com/24457152/126065816-28200a9f-2a10-47e8-ab76-ed1677fb00ec.png)
 
-## Benodigdheden
-
-### API
+## API Key
 
 REACT_APP_API_KEY=cb9794bd-ce01-481d-947a-b4e2c981c7c0
 
-### FIREBASE
+## Firebase Config
 
 REACT_APP_FB_API=AIzaSyDEakLgTMiV1L7v0icZVISF7y8vN0suD2I
 REACT_APP_FB_DOMAIN=dogio-development.firebaseapp.com
