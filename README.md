@@ -19,4 +19,14 @@ REACT_APP_FB_BUCKET=dogio-development.appspot.com
 REACT_APP_FB_SENDER=181669453123
 REACT_APP_FB_APP=1:181669453123:web:966ce32bb84b54315263f6
 
+## Installatie Instructies
+
+# Install dependencies
+npm install
+
+# Run app
+npm start
+
+# Build app
+npm run build
 
